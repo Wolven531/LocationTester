@@ -46,4 +46,30 @@ jspm_packages
 # Yarn Integrity file
 .yarn-integrity
 
+
 .DS_Store
+obj
+Temp
+.suo
+.user
+.pidb
+.userprefs
+/Library/cache
+/Library/metadata
+/Library/previews
+/Library/ScriptAssemblies
+/Library/assetDatabase3*
+/Library/AssetImportState
+/Library/assetservercachev3
+/Library/AssetServerCacheV3
+/Library/AssetVersioning.db
+/Library/BuildPlayer.prefs
+/Library/EditorSettings.asset
+/Library/EditorUserBuildSettings.asset
+/Library/expandedItems
+/Library/FailedAssetImports.txt
+/Library/guidmapper
+/Library/InspectorExpandedItems.asset
+/Library/MonoManager.asset
+/Library/NetworkManager.asset
+/Library/ScriptMapper
