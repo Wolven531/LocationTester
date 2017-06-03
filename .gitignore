@@ -74,3 +74,6 @@ Temp
 /Library/NetworkManager.asset
 /Library/ScriptMapper
 Client/Assembly-CSharp.csproj
+Client/Client.sln
+Client/Library/assetDatabase3
+Client/Library/metadata/00/*
