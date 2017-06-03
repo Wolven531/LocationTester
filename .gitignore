@@ -77,3 +77,8 @@ Client/Assembly-CSharp.csproj
 Client/Client.sln
 Client/Library/assetDatabase3
 Client/Library/metadata/00/*
+*.mdb
+Client/Library/ScriptAssemblies/Assembly-CSharp.dll
+Client/Library/metadata/77/*
+Client/Library/assetDatabase3*
+.idea/workspace.xml
