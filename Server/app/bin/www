@@ -46,9 +46,9 @@ var onError = function (error) {
 // NOTE: event listener for HTTP server 'listening' event.
 var onListening = function () {
     var addr = server.address();
-    var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
+    var bind = (typeof addr === 'string') ? addr : addr.port;
     var dispStart = 'Whoo! Server started up!';
-    var dispLoc = '| LOC=' + bind + ' |';
+    var dispLoc = '| LOC=localhost:' + bind + ' |';
     var dispPub;
 
     ngrok.connect(optsNgrok, function (err, url) {
