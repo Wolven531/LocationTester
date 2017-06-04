@@ -4,11 +4,24 @@
 var app = require('../app');
 var debug = require('debug')('app:server');
 var http = require('http');
+var ngrok = require('ngrok');
+var requestIp = require('request-ip');
+
 var port = process.env.PORT || 5555;
+var optsNgrok = {
+    proto: 'http', // http|tcp|tls 
+    addr: port, // port or network address 
+    // auth: 'user:pwd', // http basic authentication for tunnel 
+    // subdomain: 'alex', // reserved tunnel name https://alex.ngrok.io 
+    // authtoken: '12345', // your authtoken from ngrok.com 
+    region: 'us' // one of ngrok regions (us, eu, au, ap), defaults to us, 
+    // configPath: '~/git/project/ngrok.yml' // custom path for ngrok config file 
+};
+app.use(requestIp.mw({ attributeName : 'clientIP' }));
 app.set('port', port);
 
 // NOTE: event listener for HTTP server 'error' event.
-var onError = function(error) {
+var onError = function (error) {
     if (error.syscall !== 'listen') {
         throw error;
     }
@@ -31,11 +44,22 @@ var onError = function(error) {
 };
 
 // NOTE: event listener for HTTP server 'listening' event.
-var onListening = function() {
+var onListening = function () {
     var addr = server.address();
     var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
-    console.info('Server started up. Listening at: ' + bind);
-    debug('Server started up. Listening at: ' + bind);
+    var dispStart = 'Whoo! Server started up!';
+    var dispLoc = '| LOC=' + bind + ' |';
+    var dispPub;
+
+    ngrok.connect(optsNgrok, function (err, url) {
+        if (err || !url) {
+            console.error(err || 'noUrl');
+        }
+        dispPub = '| PUB=' + url + ' |';
+
+        console.info(dispStart, dispLoc, dispPub);
+        debug(dispStart + dispLoc + dispPub);
+    });
 };
 
 var server = http.createServer(app);
