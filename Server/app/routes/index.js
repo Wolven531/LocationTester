@@ -8,8 +8,8 @@ var requestIp = require('request-ip');
 router.get('/', function (req, res, next) {
     var returnVal = {
         err: null,
-        ip1: req.clientIP,
-        ip2: requestIp.getClientIp(req),
+        ip1: req.clientIP || null,
+        ip2: requestIp.getClientIp(req) || null,
         satData: null
     };
     var ip = returnVal.ip1 || returnVal.ip2;
