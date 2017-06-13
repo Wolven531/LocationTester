@@ -18,6 +18,7 @@ public class Locator : MonoBehaviour
 
     void Start()
     {
+        Map.SetActive(false);
         StartCoroutine(StartLoc());
     }
 
