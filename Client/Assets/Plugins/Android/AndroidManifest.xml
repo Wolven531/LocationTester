@@ -2,8 +2,8 @@
 <manifest 
     xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" android:installLocation="2" package="com.Geerhead.LocationTester" platformBuildVersionCode="22" platformBuildVersionName="5.1.1-1819727">
     <supports-screens android:anyDensity="true" android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="true" />
-    <application android:theme="@ref/0x7f040000" android:label="@ref/0x7f030000" android:icon="@ref/0x7f020001" android:debuggable="false" android:banner="@ref/0x7f020000" android:isGame="true">
-        <activity android:label="@ref/0x7f030000" android:name="com.unity3d.player.UnityPlayerActivity" android:launchMode="2" android:screenOrientation="6" android:configChanges="0x40002fff">
+    <application android:theme="@style/UnityThemeSelector" android:isGame="true">
+        <activity android:name="com.unity3d.player.UnityPlayerActivity" android:launchMode="2" android:screenOrientation="6" android:configChanges="0x40002fff">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
